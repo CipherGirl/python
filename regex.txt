@@ -1,0 +1,46 @@
+abcdefghijklmnopqurtuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+1234567890
+
+Ha HaHa
+
+MetaCharacters (Need to be escaped):
+.[{()\^$|?*+
+
+coreyms.com
+
+321-555-4321
+123.555.1234
+
+Mr. Schafer
+Mr Smith
+Ms Davis
+Mrs. Robinson
+Mr. T
+
+
+https://www.google.com
+http://coreyms.com
+https://youtube.com
+https://www.nasa.
+
+
+
+Jennifer Davis
+215-555-9449
+859 Cedar St., Old-town MT 31169
+jenniferdavis@bogusemail.com
+
+Mary Patterson
+988-555-6112
+956 Park St., Valyria CT 81541
+marypatterson@bogusemail.com
+
+Jane Stuart
+623-555-3006
+983 Oak St., Old-town RI 15445
+janestuart@bogusemail.com
+
+Robert Davis
+192-555-4977
+789 Maple St., Mordor IN 22215

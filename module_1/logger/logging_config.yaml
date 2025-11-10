@@ -7,20 +7,20 @@ formatters:
 handlers:
   console:
     class: logging.StreamHandler
-    level: DEBUG
+    level: CRITICAL
     formatter: simple
     stream: ext://sys.stdout
 
   file:
     class: logging.FileHandler
-    level: INFO
+    level: CRITICAL
     formatter: simple
     filename: app.log
     encoding: utf8
 
 loggers:
   my_app:
-    level: DEBUG
+    level: CRITICAL
     handlers: [console, file]
     propagate: no
 
