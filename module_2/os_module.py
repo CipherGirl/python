@@ -10,13 +10,15 @@ import os
 
 # os.rename('example.txt', 'demo.txt')
 
-# print(os.stat('demo.txt').st_size) # file details - Size, last modification time
+print(os.stat('demo.txt').st_size) # file details - Size, last modification time
 
 # for dirpath, dirname, filenames in os.walk("/Users/welldev/Code/Personal/python/module_2"):
 #     print("Curent Path: " , dirpath)
 #     print("Directories: ", dirname)
 #     print("Files: ", filenames)
 #     print()
+
+print(os.listdir('/Users/welldev/Code/Personal/python/module_2/data_structure'))
 
 
 # print(os.environ.get('HOME'))
