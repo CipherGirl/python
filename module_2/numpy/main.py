@@ -108,3 +108,21 @@ print(np.argmin(array_aggr)) # index of min value
 print(np.sum(array_aggr,axis=0)) # 0 for all columns, 1 for sum all rows
 print(np.sum(array_aggr,axis=1)) # 0 for all columns, 1 for sum all rows
 
+#===== Filtering =======
+ages = np.array([[21, 16, 14, 20, 18, 65], 
+                [39, 22, 15, 99, 21, 20]])
+
+# Creates a new array based on the filter
+teens = ages[ages < 18]
+adults = ages[(ages > 18) & (ages < 65)]
+evens = ages[ages % 2 == 0]
+odds = ages[ages % 2 != 0]
+
+print(teens, adults)
+
+# If need to preserve the shape of data where is preferred
+seniors = np.where(ages >= 65, ages, np.nan)
+
+print(seniors)
+
+#==== SKIPPED Random number =====
