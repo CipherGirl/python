@@ -91,4 +91,20 @@ scores[scores < 60] = 0
 print(scores)
 
 
+#=== SKIPPED BROADCASTING ===
+
+#==== Aggregate Function ==== 
+array_aggr = np.array([[1,2,3,4,5],
+                       [6,7,8,9,10]])
+
+print(np.sum(array_aggr))
+print(np.mean(array_aggr))
+print(np.std(array_aggr)) # standard deviation
+print(np.var(array_aggr)) # variant - squared of std
+print(np.min(array_aggr))
+print(np.max(array_aggr))
+print(np.argmin(array_aggr)) # index of min value
+
+print(np.sum(array_aggr,axis=0)) # 0 for all columns, 1 for sum all rows
+print(np.sum(array_aggr,axis=1)) # 0 for all columns, 1 for sum all rows
 
