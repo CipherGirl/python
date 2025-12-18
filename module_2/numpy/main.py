@@ -51,5 +51,44 @@ print(array_2d[2:, 0:2])
 print(array_2d[2:, 2:])
 
 
+#========= Scalar ============
+# Used for scalar operands (sinlge value)
+array_1d = np.array([1.2, 2.4, 3.1])
+
+print(array_1d + 1)
+print(array_1d - 2)
+print(array_1d * 3)
+print(array_1d / 4)
+print(array_1d ** 5)
+
+#==== Vectorized Math =====
+# Used for applying math functions to the entire array without loop  
+
+print(np.sqrt(array_1d))
+print(np.floor(array_1d))
+print(np.ceil(array_1d))
+print(np.round(array_1d))
+
+# EXERCISE - Area of a circle from radius
+radius = np.array([2,3,4])
+
+print(np.pi * radius**2) # pi x r^2
+
+#== Element wise arithmetic ==
+array1 = np.array([1,2,3])
+array2 = np.array([4,5,6])
+
+print(array1 + array2)
+print(array1 - array2)
+print(array1 * array2)
+print(array1 / array2)
+
+#==== Comparison Operators ====
+scores = np.array([92, 55, 100, 73, 82, 64])
+
+print(scores > 60)
+scores[scores < 60] = 0
+print(scores)
+
 
 
