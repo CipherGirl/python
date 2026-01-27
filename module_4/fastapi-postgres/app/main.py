@@ -14,6 +14,8 @@ init_db()
 def root():
     return {"message": "Welcome to FastAPI PostgreSQL App"}
 
+app.include_router(user.router)
+
 @app.get("/health")
 def health_check():
     return {"status": "healthy"}
