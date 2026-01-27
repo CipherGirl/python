@@ -1,5 +1,6 @@
 from psycopg2.extensions import connection
 from app.schemas.user import UserCreate
+from typing import List, Optional
 
 class UserService:    
     @staticmethod
@@ -19,3 +20,33 @@ class UserService:
             return new_user
         finally:
             cursor.close()
+    
+    @staticmethod
+    def get_all_users(db: connection) -> List[dict]:
+        cursor = db.cursor()
+        try:
+            cursor.execute(
+                "SELECT id, email, username, full_name, is_active, created_at FROM users"
+            )
+            users = cursor.fetchall()
+            return users
+        finally:
+            cursor.close()
+
+    
+    @staticmethod
+    def get_user_by_id(db: connection, user_id: int) -> Optional[dict]:
+        cursor = db.cursor()
+        try:
+            cursor.execute(
+                """
+                SELECT id, email, username, full_name, is_active, created_at 
+                FROM users WHERE id = %s
+                """,
+                (user_id,)
+            )
+            user = cursor.fetchone()
+            return user
+        finally:
+            cursor.close()
+
