@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException, status, Depends
 import psycopg2
 from psycopg2.extensions import connection
-from app.schemas.user import UserCreate, UserResponse
+from app.schemas.user import UserCreate, UserUpdate, UserResponse
 from app.services.user import UserService
 from app.core.database import db_generator
 from typing import List
@@ -47,3 +47,42 @@ def get_user(
         )
     return user
 
+@router.put("/{user_id}", response_model=UserResponse)
+def update_user(
+    user_id: int, 
+    user_update: UserUpdate, 
+    db: connection = Depends(db_generator)
+):
+    try:
+        updated_user = UserService.update_user(db, user_id, user_update)
+        
+        if not updated_user:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="User not found"
+            )
+        return updated_user
+    
+    except ValueError as e:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=str(e)
+        )
+    except psycopg2.IntegrityError:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Email already exists"
+        )
+
+@router.delete("/{user_id}", status_code=status.HTTP_204_NO_CONTENT)
+def delete_user(
+    user_id: int, 
+    db: connection = Depends(db_generator)
+):
+    deleted = UserService.delete_user(db, user_id)
+    
+    if not deleted:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="User not found"
+        )
